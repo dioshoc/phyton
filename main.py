@@ -1,8 +1,6 @@
 import uvicorn
 from fastapi import FastAPI
 
-from db.base import database
-
 app = FastAPI()
 
 
@@ -13,12 +11,12 @@ async def root():
 
 @app.on_event("startup")
 async def startup():
-    await database.connect()
+    pass
 
 
 @app.on_event("shutdown")
 async def shutdown():
-    await database.disconnect()
+    pass
 
 
 if __name__ == "__main__":
